@@ -2,7 +2,7 @@ import uuid
 from fastapi import Form
 from datetime import date
 from pydantic import BaseModel, EmailStr
-from models.user import GenderEnum
+from .models import GenderEnum
 
 
 class UserCreate(BaseModel):

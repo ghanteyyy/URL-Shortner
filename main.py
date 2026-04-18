@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from db.session import engine
 from db.base import Base
-from routers import user
+from auth import routes as auth_routes
+from jwt import routes as jwt_routes
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-app.include_router(user.router, tags=['user'])
+app.include_router(auth_routes.router, prefix="/api/auth", tags=['auth'])

@@ -1,14 +1,14 @@
 import uuid
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from models.user import User
-from schemas.user import UserCreate, UserOut
 from db.session import get_db
+from .schemas import UserCreate, UserOut
+from .models import User
 
 router = APIRouter()
 
 
-@router.post("/users", response_model=UserOut)
+@router.post("/register", response_model=UserOut)
 def create_user(user: UserCreate = Depends(UserCreate.as_form), db: Session = Depends(get_db)):
     if db.query(User).exists(User.email == user.email):
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="User already exists")
