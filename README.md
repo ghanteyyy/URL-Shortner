@@ -1,4 +1,4 @@
-# FastAPI URL Shortener
+# URL Shortener
 
 A **production-ready URL shortener API** built with **FastAPI, PostgreSQL, and SQLAlchemy**.
 Designed for scalability, clean architecture, and real-world usage.
@@ -34,8 +34,8 @@ Designed for scalability, clean architecture, and real-world usage.
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/url-shortener-fastapi.git
-cd url-shortener-fastapi
+git clone https://github.com/ghanteyyy/URL-Shortner.git
+cd URL-Shortner
 ```
 
 ### 2. Create Virtual Environment
