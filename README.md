@@ -29,7 +29,7 @@ Designed for scalability, clean architecture, and real-world usage.
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone Repository
 
