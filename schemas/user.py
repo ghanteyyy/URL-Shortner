@@ -1,15 +1,26 @@
-from pydantic import BaseModel
+import uuid
+from fastapi import Form
+from datetime import date
+from pydantic import BaseModel, EmailStr
+from models.user import GenderEnum
 
 
 class UserCreate(BaseModel):
     name: str
-    email: str
+    email: EmailStr
+    gender: GenderEnum
+    dob: date
+
+    @classmethod
+    def as_form(cls, name: str = Form(...), email: EmailStr = Form(...), gender: GenderEnum = Form(...), dob: date = Form(...)):
+        return cls(name=name, email=email, gender=gender, dob=dob)
 
 
 class UserOut(BaseModel):
-    id: int
+    id: uuid.UUID
     name: str
-    email: str
+    email: EmailStr
+    gender: GenderEnum
 
     class Config:
         from_attributes = True
