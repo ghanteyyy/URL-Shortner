@@ -4,7 +4,8 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-from auth import models
+from auth import models as auth_models
+from shortner import models as shortner_models
 from db.base import Base
 
 # this is the Alembic Config object, which provides
