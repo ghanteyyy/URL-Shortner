@@ -5,15 +5,24 @@ from pydantic import BaseModel, EmailStr
 from .models import GenderEnum
 
 
+
 class UserCreate(BaseModel):
     name: str
     email: EmailStr
+    password: str
     gender: GenderEnum
     dob: date
 
     @classmethod
-    def as_form(cls, name: str = Form(...), email: EmailStr = Form(...), gender: GenderEnum = Form(...), dob: date = Form(...)):
-        return cls(name=name, email=email, gender=gender, dob=dob)
+    def as_form(
+        cls,
+        name: str = Form(...),
+        email: EmailStr = Form(...),
+        password: str = Form(...),
+        gender: GenderEnum = Form(...),
+        dob: date = Form(...),
+    ):
+        return cls(name=name, email=email, password=password, gender=gender, dob=dob)
 
 
 class UserOut(BaseModel):
