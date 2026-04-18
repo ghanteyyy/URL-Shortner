@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from db.session import engine
 from db.base import Base
-from router import user
+from routers import user
 
 Base.metadata.create_all(bind=engine)
 
