@@ -3,8 +3,6 @@
 A **production-ready URL shortener API** built with **FastAPI, PostgreSQL, and SQLAlchemy**.
 Designed for scalability, clean architecture, and real-world usage.
 
----
-
 ## Features
 
 - Short URL generation (Base62)
@@ -16,8 +14,6 @@ Designed for scalability, clean architecture, and real-world usage.
 - Clean modular architecture
 - Docker-ready
 
----
-
 ## Tech Stack
 
 - **Backend:** FastAPI
@@ -27,9 +23,34 @@ Designed for scalability, clean architecture, and real-world usage.
 - **Language:** Python 3.13+
 
 
----
+## Installation with Docker
+**Requirements:** Docker and Docker Compose installed
 
-## Setup Instructions
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/ghanteyyy/URL-Shortner.git
+cd URL-Shortner
+```
+
+### 2. Build and start containers
+``` bash
+docker-compose up --build
+```
+
+### 3. Access the application
+The backend will be avilable at:
+
+``` bash
+http://localhost:8000/
+```
+
+### 4. Stop containers
+``` bash
+docker-compose down
+```
+
+## Running without Docker
 
 ### 1. Clone Repository
 
