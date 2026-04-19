@@ -1,0 +1,35 @@
+name: url_shortner
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: url_shortner_db
+    restart: always
+    env_file:
+      - .env.dev
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+
+  web:
+    build: .
+    container_name: url_shortner_web
+    command: >
+      sh -c "
+      alembic upgrade head &&
+      uvicorn app.main:app --host 0.0.0.0 --port 8000
+      "
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env.dev
+
+volumes:
+  postgres_data:
